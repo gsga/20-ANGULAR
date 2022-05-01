@@ -1,0 +1,8 @@
+<div class="parent">
+  <h2>Parent component</h2>
+  <app-beverages></app-beverages>
+  <ul>
+    <li *ngFor="let bev of beverages">{{ bev }}</li>
+  </ul>
+  <app-beverages [beverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>
+</div>
