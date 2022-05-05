@@ -9,7 +9,7 @@ interface Card {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'my-app';
@@ -17,10 +17,26 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.cardArray = [
-      { titulo: "Mickey Mouse", subtitulo: "Ratón locuaz", image: "../assets/img/cards/mickeymouse.jpg" },
-      { titulo: "Road Runner", subtitulo: "Lewis Hamilton", image: "../assets/img/cards/roadrunner.png" },
-      { titulo: "Yogi Bear", subtitulo: "Oso libidinoso", image: "../assets/img/cards/yogibear.jpg" },
-      { titulo: "Bugs Bunny", subtitulo: "Conejo sabandija", image: "../assets/img/cards/bugsbunny.jpg" }
+      {
+        titulo: 'Mickey Mouse',
+        subtitulo: 'Ratón locuaz',
+        image: '../assets/img/cards/mickeymouse.jpg',
+      },
+      {
+        titulo: 'Road Runner',
+        subtitulo: 'Lewis Hamilton',
+        image: '../assets/img/cards/roadrunner.png',
+      },
+      {
+        titulo: 'Yogi Bear',
+        subtitulo: 'Oso libidinoso',
+        image: '../assets/img/cards/yogibear.jpg',
+      },
+      {
+        titulo: 'Bugs Bunny',
+        subtitulo: 'Conejo sabandija',
+        image: '../assets/img/cards/bugsbunny.jpg',
+      },
     ];
   }
 }
