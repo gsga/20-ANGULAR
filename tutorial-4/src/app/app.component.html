@@ -1,0 +1,10 @@
+<app-header></app-header>
+<div class = "grid">
+    <!-- Este es un caso de property binding. 
+    Sabemos que dataEntrante debe ser una propiedad o atributo del tag app-card.
+    Por lo tanto, sabemos que dataEntrante debe estar definida en 
+    card.component.ts. Y efectivamente, lo podemos ver en ese archivo.
+    -->
+    <app-card  [dataEntrante]="card" *ngFor="let card of ArregloTarjetas"></app-card>
+</div>
+<app-sidebar></app-sidebar>

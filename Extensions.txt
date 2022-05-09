@@ -1,0 +1,2 @@
+Angular Language Service, v13.3.2, Angular
+
