@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="grid">
+    <!-- 
+    *ngFor="let card of ArregloTarjetas"
+    La directiva estructural ngFor recorre el array, según lo que viene
+    determinado en el string que está a la derecha del =.
+    ArregloTarjetas es un array. Está definida en el ts de este mismo componente.
+    Y en el método ngOnInit() de este mismo componente, se le asignan elementos.
+    Entonces, card es un elemento del array ArregloTarjetas.
+
+    [dataEntrante]="card"
+    Este es un caso de property binding. 
+    Sabemos que dataEntrante debe ser una propiedad o atributo del tag app-card.
+    Por lo tanto, sabemos que dataEntrante debe estar definida en 
+    card.component.ts. Y efectivamente, lo podemos ver en ese archivo.
+
+    <app-card> es el selector del componente card, definido en card.component.ts.
+
+    La directiva ngFor toma cada elemento card, se lo pasa al argumento "card" del
+    property binding, y eso hace que la propiedad dataEntrante del componente card
+    reciba el valor que viene en ese ítem. De ese modo queda armada una card
+    para cada uno de los elementos del array ArregloTarjetas.
+    -->
+    <app-card [dataEntrante]="card" *ngFor="let card of ArregloTarjetas"></app-card>
+</div>
+<app-sidebar></app-sidebar>
