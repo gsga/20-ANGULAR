@@ -9,12 +9,13 @@ export class BeveragesComponent implements OnInit {
 
   @Input() beverage = "tea";
   @Output() newBeverageEvent = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addNewBeverage(value: string){
+  addNewBeverage(value: string) {
     this.newBeverageEvent.emit(value);
   }
 }
