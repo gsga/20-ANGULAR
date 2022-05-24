@@ -11,9 +11,10 @@
 
 <body>
   <div>
-    <h1>Texto fuera del componente principal</h1>
+    <h1>Texto fuera del componente principal {{title}}</h1>
     <p>
-      Si se pone texto o html suelto en index.html, se mostrará como html sin más.</p>
+      Si se pone texto o html suelto en index.html, se mostrará como html sin más.
+      Notar que la interpolación no funciona, sino que aparece textualmente.</p>
     <p>
       Se puede poner en index.html otros componentes además de app-root, pero hay que agregarlos
       a la sección bootstrap, como se explica en la siguiente respuesta de StackOverflow:<br>

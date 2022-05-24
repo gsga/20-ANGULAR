@@ -1,27 +1,17 @@
 <div class="parent">
-  <h2>Parent component</h2>
-  <p>Este es el componente padre. Contiene al componente hijo.
-    Acá se muestra cómo el componente hijo le envía información al componente padre por medio de
-    una interpolación.
-  </p>
-  <app-beverages></app-beverages>
-  <p>Acá se muestra cómo el componente padre le envía información al componente hijo por medio de
-    property binding.
-  </p>
+  <h2>Parent component {{title}}</h2>
+  <p>Notar cómo ahora sí funciona la interpolación de la propiedad title,
+    que pertenece a este componente.</p>
+  <p>Este es el componente padre. Contiene al componente hijo.</p>
+  <p>El componente hijo le envía información al componente padre por medio de
+    la interpolación de la propiedad previousBeverage.</p>
+  <p>El componente padre le envía información al componente hijo por medio de
+    property binding de la propiedad currentBeverage.</p>
   <app-beverages [currentBeverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>
-</div>
-<!-- <ul>
-  <li *ngFor="let bev of beverages">{{ bev }}</li>
-</ul> -->
-<!-- Acá incluimos el componente hijo -->
-<!-- <app-beverages [beverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>-->
-<!-- <div class="parent">
-  <h2>Parent component</h2>  -->
-<!-- Acá incluimos el componente hijo -->
-<!-- <app-beverages></app-beverages>
+  <p>La lista de bebidas que aparece a continuación se construye programáticamente, recorriendo
+    con la directiva *ngFor un array de strings, que está en la variable beverages. Esta variable
+    pertenece a este mismo componente. Se define en app.component.ts y allí se le asigna un valor.</p>
   <ul>
     <li *ngFor="let bev of beverages">{{ bev }}</li>
-  </ul> -->
-<!-- Acá incluimos el componente hijo -->
-
-<!-- </div> -->
+  </ul>
+</div>
