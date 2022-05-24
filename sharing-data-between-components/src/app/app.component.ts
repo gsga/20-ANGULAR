@@ -7,16 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sharing-data-between-components';
+  // Esta propiedad está pensada para property binding.
   currentBeverage = "cofee";
   beverages = ['milk', 'tea', 'cofee', 'juice'];
 
-  addBeverage(newBeverage: string){
+  addBeverage(newBeverage: string) {
     this.beverages.push(newBeverage);
     this.clearInput();
   }
 
-  clearInput(){
-    let input = <HTMLInputElement> document.getElementById('beverage-input');
+  clearInput() {
+    let input = <HTMLInputElement>document.getElementById('beverage-input');
     input.value = '';
   }
 }

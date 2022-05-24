@@ -1,22 +1,27 @@
 <div class="parent">
   <h2>Parent component</h2>
-  Este es el componente padre. Contiene al componente hijo.
-  Acá se muestra cómo el componente hijo le envía información al componente padre.
-
+  <p>Este es el componente padre. Contiene al componente hijo.
+    Acá se muestra cómo el componente hijo le envía información al componente padre por medio de
+    una interpolación.
+  </p>
   <app-beverages></app-beverages>
+  <p>Acá se muestra cómo el componente padre le envía información al componente hijo por medio de
+    property binding.
+  </p>
+  <app-beverages [currentBeverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>
 </div>
-<ul>
+<!-- <ul>
   <li *ngFor="let bev of beverages">{{ bev }}</li>
-</ul>
+</ul> -->
 <!-- Acá incluimos el componente hijo -->
-<app-beverages [beverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>
-<div class="parent">
-  <h2>Parent component</h2>
-  <!-- Acá incluimos el componente hijo -->
-  <app-beverages></app-beverages>
+<!-- <app-beverages [beverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>-->
+<!-- <div class="parent">
+  <h2>Parent component</h2>  -->
+<!-- Acá incluimos el componente hijo -->
+<!-- <app-beverages></app-beverages>
   <ul>
     <li *ngFor="let bev of beverages">{{ bev }}</li>
-  </ul>
-  <!-- Acá incluimos el componente hijo -->
-  <app-beverages [beverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>
-</div>
+  </ul> -->
+<!-- Acá incluimos el componente hijo -->
+
+<!-- </div> -->
