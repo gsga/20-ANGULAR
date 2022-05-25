@@ -14,4 +14,25 @@
   <ul>
     <li *ngFor="let bev of beverages">{{ bev }}</li>
   </ul>
+  <p>
+    El usuario ingresa un texto en la caja de input.
+    <br>
+    El usuario aprieta el botón Add. El botón está definido en
+    beverages.component. Tiene asociada la función addNewBeverage() para el evento click.
+    Esta función recibe como parámetro newBeverage.value. Es decir que estamos usando la variable de referencia
+    para acceder al texto ingresado por el usuario. Esta función, a su vez, accede al objeto
+    newBeverageEvent, propiedad del control beverages.
+    <br>
+    Este objeto es de tipo EventEmitter&lt;string&gt;. Tiene un método
+    emit(), que es invocado para emitir un evento. Ese evento está asociado a la variable newBeverageEvent.
+    <br>
+    Esta variable, a su vez, tiene el decorador @Output.
+    <br>
+    Si ahora nos vamos a app.component, vemos que dentro del tag
+    &lt;app-beverages&gt; la variable mencionada va entre paréntesis, así: (newBeverageEvent) y está asociada al
+    llamado a la función addBeverage($event). Este $event es el evento que emitió la función emit() que antes fue
+    invocada. Esto se puede comprobar usando el debugger y poniendo un breakpoint
+    Finalmente, la función addBeverages agrega el texto ingresado a la lista de bebidas.
+  </p>
+
 </div>
