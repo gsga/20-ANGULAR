@@ -1,28 +1,41 @@
-:host{
+/*
+https://developer.mozilla.org/en-US/docs/Web/CSS/:host
+https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
+
+Establece que este estilo se aplica a todo el subárbol del DOM
+que nace en este elemento y organiza todos los elementos
+en él contenidos.
+*/
+:host {
     padding-left: 5rem;
     padding-right: 5rem;
     display: block;
 }
-.title{
+
+.title {
     font-weight: 600;
 }
-.favorite-list{
+
+.divider {
+    border-top: solid 1px rgb(12, 8, 0);
+}
+
+.favorite-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: block;
 }
-.favorite-list li{
+
+.favorite-list li {
     padding: 1rem;
 }
-.mini-image{
+
+.mini-image {
     width: 7rem;
     height: 4rem;
 }
-.divider{
-    border-top: solid 1px rgb(12, 8, 0);
-}
 
-.title-inside{
+.title-inside {
     font-weight: 800;
 }

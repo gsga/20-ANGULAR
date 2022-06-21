@@ -1,0 +1,27 @@
+<!--
+  src\app\app.component.html
+-->
+
+<h1>Angular Title Service Example</h1>
+
+<ul>
+  <!--
+    https://angular.io/api/router/RouterLink#description
+    Links a los tres componentes. Visualmente, son renderizados
+    como si fueran simplemente links de HTML, pero en realidad 
+    tienen un comportamiento dinánico.
+    Como se ve en la documentación oficial, es una funcionalidad
+    de Angular.
+  -->
+  <li><a [routerLink]="['/one']">One</a> </li>
+  <li><a [routerLink]="['/two']">Two</a> </li>
+  <li><a [routerLink]="['/three']">Three</a> </li>
+</ul>
+
+<!--
+  La palabra main es un atributo del tag div. Podría ser cualquier otra
+  palabra arbitraria. Solo sirve como selector en la hoja de estilo.
+-->
+<div main>
+  <router-outlet></router-outlet>
+</div>

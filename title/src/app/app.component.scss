@@ -1,0 +1,10 @@
+/* src\app\app.component.scss
+main entre corchetes es el selector que selecciona
+todos los elementos que tengan la palabra main como
+atributo.
+En nuestro caso, solo tenemos el tag div en el template
+del componente principal de la aplicación.
+*/
+[main] {
+    background-color: yellow;
+}

@@ -3,14 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MiPrimeraApp": {
+    "title": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "",
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mi-primera-app",
+            "outputPath": "dist/title",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MiPrimeraApp:build:production"
+              "browserTarget": "title:build:production"
             },
             "development": {
-              "browserTarget": "MiPrimeraApp:build:development"
+              "browserTarget": "title:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MiPrimeraApp:build"
+            "browserTarget": "title:build"
           }
         },
         "test": {
@@ -107,8 +104,7 @@
       }
     }
   },
-  "defaultProject": "MiPrimeraApp",
   "cli": {
-    "analytics": "9ff49129-c992-4383-b46c-748b4493d08d"
+    "analytics": "1d824e70-106c-49dd-806e-580cc9390198"
   }
 }
