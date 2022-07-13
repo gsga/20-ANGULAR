@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     HeaderComponent,
-    SidebarComponent
+    FavoritosComponent
   ],
   imports: [
     BrowserModule
