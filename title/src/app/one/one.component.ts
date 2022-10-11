@@ -16,6 +16,14 @@ export class OneComponent implements OnInit {
   }
 
   ngOnInit() {
+    /**
+     * Invoca el servicio Title para cambiar el título de la solapa
+     * del browser en la que estamos mostrando la aplicación.
+     * El atributo title es una de las metatags de la sección head
+     * del documento html, y por lo tanto está fuera del alcance normal
+     * de TypeScript, que se ocupa del body. Por eso se necesita un
+     * servicio especial.
+     */
     this.titleService.setTitle(this.title);
   }
 

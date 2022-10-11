@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 /**
  * Hay que importar Title, que es el servicio que se quiere usar.
  * La documentación oficial está en https://angular.io/api/platform-browser/Title
+ * En este contexto, title no es ninguno de los headers de nivel 1 que pueda
+ * haber en el body del documento html, sino la leyenda que aparece en la solapa
+ * del browser correspondiente a nuestra aplicación.
  * Es un servicio que se puede utilizar para obtener y establecer el 
  * título del documento HTML actual. Ese documento es el que está mostrado
  * en este momento en el browser, en la solapa activa, es decir donde está

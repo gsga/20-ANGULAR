@@ -1,13 +1,13 @@
 <app-header></app-header>
 <!--
-    Esto es una interpolación. El valor de la variable title se interpola en
-    el tag <h1>. El nombre de la variable entre las dobles llaves {{title}}
+    Esto es una interpolación. El valor de la variable titulo se interpola en
+    el tag <h1>. El nombre de la variable entre las dobles llaves {{titulo}}
     nos dice que se trata de una variable. Dado que no hay ninguna indicación
     de su procedencia, por defecto suponemos que debe ser de este mismo
     componente. En ese caso, debería estar definida en el archivo 
     src\app\app.component.ts, y así es, efectivamente.
 -->
-<h1>{{title}}</h1>
+<h1>{{titulo}}</h1>
 <div class="grid">
     <!--
         <app-card> es el selector del componente card, definido en card.component.ts.
@@ -28,16 +28,18 @@
         
         La variable tarjeta está definida en la misma línea, en el cuerpo de la directiva *ngFor. 
         *ngFor="let tarjeta of arregloTarjetas"
-        La directiva estructural ngFor recorre el array, según lo que viene
+        La directiva estructural *ngFor recorre el array, según lo que viene
         determinado en el string que está a la derecha del =.
-        arregloTarjetas es un array. Está definida en el ts de este mismo componente.
+        tarjetas es un array. Está definida en el ts de este mismo componente.
         Y en el método ngOnInit() de este mismo componente, se le asignan elementos.
-        Entonces, tarjeta es un elemento del array arregloTarjetas.
-        La directiva ngFor toma cada elemento tarjeta, se lo pasa al argumento "tarjeta" del
+        Entonces, tarjeta es un elemento del array tarjetas.
+        La directiva *ngFor toma cada elemento tarjeta, se lo pasa al argumento "tarjeta" del
         property binding, y eso hace que la propiedad dataEntrante del componente card
         reciba el valor que viene en ese ítem. De ese modo queda armada una card
         para cada uno de los elementos del array arregloTarjetas.
+        dataEntrante tiene la capacidad de recibir estos datos porque
+        le pusimos el decorador @Input.
     -->
-    <app-card [dataEntrante]="tarjeta" *ngFor="let tarjeta of arregloTarjetas"></app-card>
+    <app-card [dataEntrante]="tarjeta" *ngFor="let tarjeta of tarjetas"></app-card>
 </div>
 <app-sidebar></app-sidebar>

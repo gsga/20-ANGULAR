@@ -1,4 +1,0 @@
-Me aparecieron unos comporamientos extraños en VS Code, que supuse que vendrían de alguna de las extensiones. Pero no pude determinar de cuál. Por lo tanto, las desinstalé todas, y las voy a reinstalar de a una por vez, en el orden preciso que está consignado en este documento. Supongo que de ese modo podré averiguar qué pasó.
-
-Angular Language Service, v13.3.2, Angular
-

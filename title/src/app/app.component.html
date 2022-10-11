@@ -12,7 +12,30 @@
     tienen un comportamiento dinánico.
     Como se ve en la documentación oficial, es una funcionalidad
     de Angular.
-  -->
+    Los routerLink entre corchetes a la izquierda del = son ejemplos de property binding.
+    Lo que está a la derecha del = es un array de parámetros de link, en inglés
+    link parameters array. Lo que estamos haciendo en este ejemplo se llama
+    ligar un link parameters array a una directiva RouterLink.
+    https://angular.io/guide/router#link-parameters-array
+    Estamos en el componente principal de la aplicación, no propiamente
+    en index.html, sino en algo que se va a inyectar en index.html.
+    De hecho, este archivo está dentro de la carpeta app, que a su vez está
+    en el directorio raíz de la aplicación, que es donde está index.html.
+    En las líneas que siguen, lo que está a la derecha del = es en todos los
+    casos una string, y por eso está entre comillas "". Lo que está entre comillas,
+    es decir la string, está encerrada entre dos corchetes []. Los corchetes nos dicen
+    que es un array. Dentro del array, o sea entre los corchetes, van los elementos del
+    array, en forma de lista separada por comas. En este caso tenemos un único elemento,
+    y por eso no hay comas. Ese úníco elemento es obligatorio, mientras que los demás son
+    optativos. Ese elemento obligatorio es el path al componente que quiero
+    invocar cuando el usuario clickee el link.
+    Recordar que Angular construye Single Page Applications, de modo
+    que al seguir el link no vamos a cambiar de URL, sino que cargaremos
+    asincrónicamente un contenido distinto, pero en la misma página en 
+    la que estamos. Y ese contenido nuevo que vamos  cargar va a aterrizar
+    en el placeholder <router-outlet></router-outlet> que está en la div de
+    más abajo.
+    -->
   <li><a [routerLink]="['/one']">One</a> </li>
   <li><a [routerLink]="['/two']">Two</a> </li>
   <li><a [routerLink]="['/three']">Three</a> </li>
@@ -21,7 +44,16 @@
 <!--
   La palabra main es un atributo del tag div. Podría ser cualquier otra
   palabra arbitraria. Solo sirve como selector en la hoja de estilo.
+  Nos vamos a dar cuenta porque al seguir uno de los links de más
+  arriba nos va a aparecer el componente invocado, que aterrizará en
+  el router-outlet. Pero el router-outler está dentro de una div que tiene
+  un color de background amarillo patito y letras de un rojo Ferrari.
 -->
 <div main>
+  <!--
+    Este es el placeholder donde va a venir a aterrizar el nuevo contenido,
+    o sea la renderización del componente que invoquemos al seguir uno
+    de los routerLinks de más arriba.
+  -->
   <router-outlet></router-outlet>
 </div>

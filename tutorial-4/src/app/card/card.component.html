@@ -6,6 +6,11 @@
         en lugar de ser explícitamente escrito en el código html,
         será reemplazado en runtime, usando el valor de la
         variable dataEntrante.image. Ese valor es una cadema, string.
+        Pero como Angular ya sabe que se trata de property binding,
+        no lo va a interpretar como una cadena común y corriente, en
+        su valor literal, sino que va a asumir que en realidad se
+        trata del nombre de una variable. Entonces, busca esa variable
+        en los componentes lógicos, y averigua su valor.
         Cuando el valor de esa cadena es reemplazado en ese lugar,
         nos quedaría el operador de asignación =, y a la derecha tendría
         que haber una cadena. La sintaxis correcta es el nombre de la variable
@@ -19,11 +24,10 @@
         la toma como un literal de string.
     -->
     <img class="image" [src]="dataEntrante.image" alt="">
-    <div class="wrapper-text">
+    <div class="caption">
         <div class="title">{{dataEntrante.titulo}}</div>
         <div class="sub-title">{{dataEntrante.subtitulo}}</div>
-    </div>
-    <div>
+        <br>
         <button class="favorite" (click)="AgregarAFavorito()">Añadir a Favoritos</button>
     </div>
 </div>

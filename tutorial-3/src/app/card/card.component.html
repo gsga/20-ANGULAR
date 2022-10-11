@@ -1,1 +1,17 @@
-<p>card works!</p>
+<!-- Property binding. Los corchetes le avisan a la plataforma
+dos cosas. 
+En primer lugar, lo que está entre los corchetes es el
+nombre de un atributo, en otra palabras, un atributo de este
+elemento del DOM, que en este ejemplo es un tag img.
+El segundo lugar, la plataforma queda advertida de que lo
+que está a la derecha del = no debe ser interpretado como
+una string común y corriente, sino que el contenido de la
+string, o sea lo que está entre las comillas, es una expresión
+que debe ser evaluada. En este caso, es la propiedada imagen
+del componente card.
+-->
+<img class="card" [src]="imagen" alt="" />
+<!-- Interpolación. Las dobles llaves le avisan a la plataforma que
+lo que está dentro es el nombre de una variable, en este caso es
+la propiedad caption del componente card -->
+<p>{{caption}}</p>

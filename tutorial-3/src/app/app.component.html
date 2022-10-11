@@ -1,2 +1,13 @@
+<!--
+    Este archivo src\app\app.component.html es el template del
+    componente principal de la aplicación.
+    Contiene solo dos tags. El primero inyecta el
+    componente cuyo selector es app-header, y el segundo
+    inyecta el router-outlet.
+-->
 <app-header></app-header>
+<h1>{{titulo}}</h1>
+<div class="grid">
+    <app-card *ngFor="let tarjeta of tarjetas"></app-card>
+</div>
 <router-outlet></router-outlet>
