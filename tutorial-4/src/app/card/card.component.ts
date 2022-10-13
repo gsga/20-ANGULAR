@@ -13,7 +13,8 @@ export class CardComponent implements OnInit {
    * Si está presente, debe ser de tipo string.
    */
   public image?: string;
-  public Titulo: string = "Curso de Angular con Interpolación";
+  public titulo: string = "";
+  public subtitulo: string = "";
   /**
    * https://angular.io/api/core/Input
    * Los decoradores @Input() y @Output() son mecanismos para intercambiar datos entre componentes.
@@ -48,6 +49,30 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Este es el método llamado por el evento click() del botón que está en
+   * el template de este componente.
+   * 
+   * this es una palabra reservada, que retorna una referencia a esta instancia
+   * de esta clase, es decir a este objeto en el que estoy ahora.
+   * 
+   * this.servicioFavorito es la instancia de la clase ServicioFavoritosService
+   * de este objeto. Notar que la clase CardComponent no lo declara. Si nos fijamos
+   * bien, lo único que hay es que el constructor de la clase CardComponent
+   * recibe como argumento "private servicioFavorito: ServicioFavoritosService".
+   * Y esto es una inyección de dependencia. El objeto servicioFavorito
+   * aparece como una propiedad de esta instancia de la clase CardComponent,
+   * perfectamente inicializado y listo para usar. Acá simplemente lo usamos.
+   * 
+   * this.servicioFavorito.diparadorFavoritos es la propiedad diparadorFavoritos
+   * del objeto this.servicioFavorito.
+   * Esa propiedad es de tipo EventEmitter<any>.
+   * https://angular.io/api/core/EventEmitter
+   * Es usa en componentes con la directiva @Output para emitir eventos personalizados 
+   * de forma síncrona o asíncrona, y registre controladores para esos eventos 
+   * que estén suscritos a una instancia.
+   * En otras palabras, es un emisor de eventos, y para eso se usa el método emit().
+   */
   AgregarAFavorito() {
     this.servicioFavorito.diparadorFavoritos.emit(
       { data: this.dataEntrante }

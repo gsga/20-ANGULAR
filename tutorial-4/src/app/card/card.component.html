@@ -1,5 +1,6 @@
 <div class="card">
     <!--
+        Property binding
         [src]: src es la propiedad src del tag <img> de html. Como está
         entre corchetes [] significa que Angular va a generar un
         property binding. Es decir que el valor de esta propiedad,
@@ -10,24 +11,47 @@
         no lo va a interpretar como una cadena común y corriente, en
         su valor literal, sino que va a asumir que en realidad se
         trata del nombre de una variable. Entonces, busca esa variable
-        en los componentes lógicos, y averigua su valor.
-        Cuando el valor de esa cadena es reemplazado en ese lugar,
-        nos quedaría el operador de asignación =, y a la derecha tendría
-        que haber una cadena. La sintaxis correcta es el nombre de la variable
-        encerrado entre comillas. Las comillas no son optativas, son obligatorias,
-        son parte de la sintaxis. Tenemos que poner las comillas encerrando
-        en nombre de la variable. El nombre de la variable entre comillas, 
-        Angular lo reconoce como una expresión, y no admite una interpolación. Si ponemos el
-        cursor encima de dataEntrante y apretamos F12, vamos a parar al archivo
+        en los componentes, y averigua su valor.
+
+        La sintaxis correcta es el nombre de la variable encerrado entre comillas. 
+        Las comillas no son optativas, son obligatorias, son parte de la sintaxis. T
+        enemos que poner las comillas encerrando en nombre de la variable. Si ponemos 
+        el cursor encima de dataEntrante y apretamos F12, vamos a parar al archivo
         src\app\card\card.component.ts, justo en la línea que define la variable.
-        Si le quitamos las comillas, Angular deja de reconocerla como variable, y
-        la toma como un literal de string.
     -->
     <img class="image" [src]="dataEntrante.image" alt="">
     <div class="caption">
+        <!-- Interpolación, en este caso de una expresión, que es el
+            nombre de la propiedad calificada por el nombre del objeto. -->
         <div class="title">{{dataEntrante.titulo}}</div>
         <div class="sub-title">{{dataEntrante.subtitulo}}</div>
         <br>
+        <!-- 
+            Esto es un ejemplo de property binding con una template expression.
+            Lo que va entre las comillas se llama técnicamente template expression. 
+            En todos los documentos oficiales que leí (y fueron muchos) dice
+            taxativamente que la sintaxis correcta es con las dos comillas dobles.
+            Angular lo toma como una expresión en JavaScript o TypeScript.
+            Por lo tanto, lo evalúa, y pone el resultado. Una de las 
+            cosas que se puede poner es un llamado a una función. Esto es
+            lo que se hace en los eventos de los botones. 
+            
+            AgregarAFavorito() es un método de esta clase, o de este componente.
+            Está programado en JavaScript, en el archivo src\app\card\card.component.ts
+        -->
         <button class="favorite" (click)="AgregarAFavorito()">Añadir a Favoritos</button>
+        <!-- 
+        Si pongo un ";" y luego otra instrucción, Angular ejecuta las dos instrucciones o statements, 
+        una después de la otra. Si todo esto lo pongo entre comillas no hay duda 
+        posible, no hay confusión. 
+        -->
+        <!-- <button class="favorite" (click)="AgregarAFavorito(); AgregarAFavorito()">Añadir a Favoritos</button> -->
+        <!--        
+        Si no pongo las comillas es confuso, porque aparece el ";" y después un espacio en blanco.
+        En este caso el compilador no me da un error: compila y ejecuta.
+        Pero cuando voy a la consola del browser, veo que tengo un error de runtime,
+        ERROR DOMException: Failed to execute 'setAttribute' on 'Element': 'AgregarAFavorito()' is not a valid attribute name.
+        -->
+        <!-- <button class="favorite" (click)=AgregarAFavorito(); AgregarAFavorito()>Añadir a Favoritos</button> -->
     </div>
 </div>

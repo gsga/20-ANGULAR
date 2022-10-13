@@ -13,11 +13,31 @@ en él contenidos.
 }
 
 .title {
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 1rem;
 }
 
 .divider {
     border-top: solid 1px rgb(12, 8, 0);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .1rem;
+    padding-left: 0rem;
+    padding-bottom: 1rem;
+}
+
+.card {
+    margin: auto;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.title-item {
+    font-size: 1rem;
+    font-weight: 2rem;
 }
 
 .favorite-list {
@@ -32,10 +52,6 @@ en él contenidos.
 }
 
 .mini-image {
-    width: 7rem;
-    height: 4rem;
-}
-
-.title-inside {
-    font-weight: 800;
+    width: 5rem;
+    height: auto;
 }

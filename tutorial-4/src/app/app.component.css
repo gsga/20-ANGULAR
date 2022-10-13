@@ -1,3 +1,4 @@
+/* Esta es la clase que se aplica a la div que está en el template. */
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

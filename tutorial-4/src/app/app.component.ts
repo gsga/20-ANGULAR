@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 interface Tarjeta {
   /**
-   * En TypeScript, el nombre del tipo string se escribe con minúsculas.
-  */
-  titulo: string;
-  subtitulo: string;
-  /**
    * Propiedades opcionales
    * https://www.typescriptlang.org/docs/handbook/2/objects.html#optional-properties
    * Una propiedad de un objeto, que podría estar o no presente
@@ -17,6 +12,11 @@ interface Tarjeta {
    * corresponde declarar el tipo string.
  */
   image?: string;
+  /**
+   * En TypeScript, el nombre del tipo string se escribe con minúsculas.
+  */
+  titulo: string;
+  subtitulo: string;
 }
 
 @Component({

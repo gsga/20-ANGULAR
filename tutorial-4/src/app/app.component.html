@@ -1,3 +1,4 @@
+<!-- Este es el componente principal de la aplicación. -->
 <app-header></app-header>
 <!--
     Esto es una interpolación. El valor de la variable titulo se interpola en
@@ -8,38 +9,44 @@
     src\app\app.component.ts, y así es, efectivamente.
 -->
 <h1>{{titulo}}</h1>
+<!-- Esta div es de clase grid. La clase grid está definida en la CSS -->
 <div class="grid">
     <!--
         <app-card> es el selector del componente card, definido en card.component.ts.
-        [dataEntrante]="card" es un caso de property binding. 
+
+        [dataEntrante]="tarjeta" es un caso de property binding. 
         Lo que está entre los corchetes [] debe ser una propiedad, es decir,
         el nombre de una propiedad.
         Sabemos que dataEntrante debe ser una propiedad o atributo del componente card.
         Por lo tanto, sabemos que dataEntrante debe estar definida en 
         card.component.ts. Y efectivamente, lo podemos ver en ese archivo.
-        Lo que está entre comillas a la derecha del igual (="") es una variable, 
+
+        Lo que está entre comillas a la derecha del igual (="") 
+        es una cadena, pero resulta que justo esa cadena
+        está asignada a algo que está entre corchetes. La aparición de los
+        corchetes a la izquierda del = le dice a la plataforma que la cadena 
+        que está a la derecha del = no la tiene que tomar como una
+        cadena literalmente, sino que tiene que pensar que es una variable, 
         cuyo valor se va a reemplazar en ese lugar, es decir entre las comillas.
-        En este caso, es la variable tarjeta.
-        El autor del tutorial le llama card a esta variable, pero eso me parece poco feliz,
-        por dos razones.
-        En primer lugar, arregloTarjetas es un array de tipo Tarjeta, de modo que cada uno de
-        sus elementos es una tarjeta. Esta es la elección obvia de nombre.
-        En segundo lugar, ya tenemos un componente que se llama card, y hay peligro de confusión.
+        En este caso, es la variable tarjeta. Una variable cuyo nombre es tarjeta.
         
-        La variable tarjeta está definida en la misma línea, en el cuerpo de la directiva *ngFor. 
-        *ngFor="let tarjeta of arregloTarjetas"
-        La directiva estructural *ngFor recorre el array, según lo que viene
+        *ngFor="let tarjeta of tarjetas"
+        La directiva estructural *ngFor recorre una colección, según lo que viene
         determinado en el string que está a la derecha del =.
-        tarjetas es un array. Está definida en el ts de este mismo componente.
-        Y en el método ngOnInit() de este mismo componente, se le asignan elementos.
-        Entonces, tarjeta es un elemento del array tarjetas.
+        'let tarjeta' declara La variable tarjeta.
+        'of tarjetas' especifica que tarjeta es un componente del array tarjetas.
+        Entonces, cada tarjeta es un elemento del array tarjetas.
         La directiva *ngFor toma cada elemento tarjeta, se lo pasa al argumento "tarjeta" del
         property binding, y eso hace que la propiedad dataEntrante del componente card
         reciba el valor que viene en ese ítem. De ese modo queda armada una card
-        para cada uno de los elementos del array arregloTarjetas.
+        para cada uno de los elementos del array tarjetas.
+
         dataEntrante tiene la capacidad de recibir estos datos porque
-        le pusimos el decorador @Input.
+        le pusimos el decorador @Input en src\app\card\card.component.ts.
     -->
     <app-card [dataEntrante]="tarjeta" *ngFor="let tarjeta of tarjetas"></app-card>
 </div>
-<app-sidebar></app-sidebar>
+<!-- En este lugar del template del componente principal de la aplicación
+va a aparecer el template del componente favoritos, debidamente
+inicializado y completado -->
+<app-favoritos></app-favoritos>
