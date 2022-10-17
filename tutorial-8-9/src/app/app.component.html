@@ -1,0 +1,55 @@
+<h1>Tutorial 8 - sincronización</h1>
+<!--  "container-fluid" y "row" son clases de BootStrap. 
+No están definidas en src\app\app.component.scss, sino que
+las trajimos en el link que pusimos en index.html. -->
+<div class="container-fluid">
+  <div class="row">
+    <h2>Interpolación de variables</h2>
+    <!-- Interpolación. Entre las dobles llaves tenemos la variable "nombre".
+    Esta variable es declarada en app.component.ts, donde también se le asigna un valor.
+    La información fluye desde el ts al html. -->
+    <p>{{nombre}}</p>
+  </div>
+
+  <div class="row">
+    <div>
+      <h2>Interpolación de expresiones</h2>
+      <!-- Interpolación de expresiones. Entre las dobles llaves tenemos una expresión.
+      Esta expresión es evaluada y el resultado se interpola. 
+      No parece apropiado hablar de un sentido de flujo en uno u otro sentido.
+      Todo se resuelve en este mismo lugar. -->
+      <p>7 * 8 = {{7 * 8}}</p>
+    </div>
+    <div>
+      <h2>Interpolación de función</h2>
+      <!-- Interpolación de función. Entre las dobles llaves tenemos un llamado a una función.
+      A la izquierda del = tenemos exactamente lo mismo, en apariencia, pero es
+      interpretado como una cadena de texto y nada más. La diferencia está en las
+      dobles llaves que encierran el llamado a la función. 
+      Por supuesto, la función está definida en el archivo ts, no en este template.
+      La función retorna un valor, y ese valor se interpola entre las llaves dobles. -->
+      <p>suma(2, 2) = {{suma(2, 2)}}</p>
+    </div>
+  </div>
+  <!-- 
+  BootStrap ofrece una cantidad de clases para construir formularios.
+  La documentación oficial está en
+  https://getbootstrap.com/docs/4.0/components/forms/
+  -->
+  <div class="row">
+    <!--
+      Property binding. Recordar que la sintaxis correcta requiere
+      que lo que está a la derecha del = vaya entre comillas. 
+      Si lo que ponemos es solo el nombre de una variable, da lo mismo,
+      funciona igual de bien sin las comillas. Pero si lo que ponemos
+      es algo más complejo, como por ejemplo dos instrucciones separadas
+      por ";", o una expresión que incluye espacios en blanco, confundiría
+      al compilador. De modo que ponemos siempre las comillas. Y eso que
+      va entre las comillas, el compilador lo interpreta como una expresión.
+      Esa expresión, el compilador la va a buscar en el .ts, no en el .html.
+      Por eso, decimos que el flujo de la información es desde el .ts hacia
+      el .html.
+      -->
+    <input type="text" class="form-control" [placeholder]="placeholder" [disabled]="disabled">
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="child">
+  <h2>Child component</h2>
+  <p>Este es el componente hijo, que está contenido en el componente padre.</p>
+  <p>La propiedad previousBeverage, que en este template está entre las dobles llaves,
+    recibe su valor de la propiedad previousBeverage, definida en el archivo beverages.component.ts.
+    <br>
+    <strong>Previous beverage: {{ previousBeverage }}</strong>
+  </p>
+  <p>La propiedad currentBeverage, que en este template está entre las dobles llaves,
+    es la propiedad currentBeverage. Es definida en el archivo beverages.component.ts, pero no
+    se le asigna un valor.
+    <br>
+    Recibe su valor por medio del property binding que está en el archivo app.component.html.
+    Allí se ve cómo la propiedad currentBeverage del componente beverages que va entre [], está ligada a la propiedad
+    currentBeverage del componente principal, que va entre "". Esa es la sintaxis correcta.
+    La propiedad currentBeverage del componente principal recibe su valor en el archivo app.component.ts.
+    <br>
+    <strong>Current beverage: {{ currentBeverage }}</strong>
+  </p>
+
+  <p>Acá introducimos el uso de variables de referencia de plantilla.
+    <br>
+    <a
+      href="https://angular.io/guide/template-reference-variables">https://angular.io/guide/template-reference-variables</a>
+    <br>
+    newBeverage es una variable de referencia de plantilla.
+    La variable de referencia se define anteponiendo un numeral al nombre: #nombre_de_variable.
+    <br>
+    Una vez definida, la variable se accede simplemente por su nombre, sin el #.
+    El significado preciso, el alcance, de la variable, es determinado por el lugar
+    en el que fue definida. Entre otras cosas, esto significa que tendrá unas u
+    otras propiedades, las que le correspondan.
+    <br>
+    newBeverage se refiere al tag de HTML &lt;input&gt; dentro del cual está definida.
+    Luego es usada en el tag &lt;button&gt;, en el código que se ocupa del evento click.
+  </p>
+
+  <label for="beverage-input">Add a beverage&emsp;</label>
+  <input type="text" id="beverage-input" #newBeverage />
+  <button (click)="addNewBeverage(newBeverage.value)">Add</button>
+</div>

@@ -1,0 +1,56 @@
+.card {
+    margin: auto;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.image {
+    max-width: 50%;
+    max-height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.caption {
+    text-align: center;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.sub-title {
+    font-size: 1rem;
+}
+
+/* Basado en https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#try_it */
+.favorite {
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+            rgba(0, 0, 0, .2),
+            rgba(0, 0, 0, .2) 30%,
+            rgba(0, 0, 0, 0));
+    border: none;
+    border-radius: .3rem;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+        inset -2px -2px 3px rgba(0, 0, 0, .6);
+    color: white;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.favorite:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.favorite:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+        inset 2px 2px 3px rgba(0, 0, 0, .6);
+}

@@ -1,13 +1,19 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "7a8041e9-5503-4c30-9a47-2df94f8ed783"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sharing-data-between-components": {
+    "tutorial-8": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sharing-data-between-components",
+            "outputPath": "dist/tutorial-8",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "sharing-data-between-components:build:production"
+              "browserTarget": "tutorial-8:build:production"
             },
             "development": {
-              "browserTarget": "sharing-data-between-components:build:development"
+              "browserTarget": "tutorial-8:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sharing-data-between-components:build"
+            "browserTarget": "tutorial-8:build"
           }
         },
         "test": {
@@ -103,8 +109,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

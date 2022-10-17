@@ -1,30 +1,16 @@
 <div class="parent">
   <h2>Parent component {{title}}</h2>
-  <!-- 
-    Este es app-root, el componente padre. 
-    Contiene al componente hijo, que es app-beverages.
-    La propiedad currentBeverage que está entre corchetes [] a la
-    izquierda del = es una propiedad del componente app-beverages. 
-    Esto se puede comprobar en el archivo beverages.component.ts.
-    Entonces ya sabemos que se trata de property binding.
-    Lo que está a la derecha del = entre comillas es el nombre de una
-    propiedad, y ese nombre es currentBeverage, lo mismo que antes.
-    Pero ahora sabemos por el contexto que esta segunda propiedad no
-    es del componente app-beverages, sino de este componente en el que
-    estamos ahora, app-root.
-    Notar cómo ahora sí funciona la interpolación de la propiedad title,
-    que pertenece a este componente.
-    El componente hijo le envía información al componente padre por medio de
-    la interpolación de la propiedad previousBeverage.
-    El componente padre le envía información al componente hijo por medio de
-    property binding de la propiedad currentBeverage. 
-  -->
+  <p>Notar cómo ahora sí funciona la interpolación de la propiedad title,
+    que pertenece a este componente.</p>
+  <p>Este es el componente padre. Contiene al componente hijo.</p>
+  <p>El componente hijo le envía información al componente padre por medio de
+    la interpolación de la propiedad previousBeverage.</p>
+  <p>El componente padre le envía información al componente hijo por medio de
+    property binding de la propiedad currentBeverage.</p>
   <app-beverages [currentBeverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>
-  <!-- 
-    La lista de bebidas que aparece a continuación se construye programáticamente, recorriendo
+  <p>La lista de bebidas que aparece a continuación se construye programáticamente, recorriendo
     con la directiva *ngFor un array de strings, que está en la variable beverages. Esta variable
-    pertenece a este mismo componente. Se define en app.component.ts y allí se le asigna un valor.
-  -->
+    pertenece a este mismo componente. Se define en app.component.ts y allí se le asigna un valor.</p>
   <ul>
     <li *ngFor="let bev of beverages">{{ bev }}</li>
   </ul>
