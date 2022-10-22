@@ -1,14 +1,31 @@
+/*
+Esta clase se crea solo como una ayuda visual para que en la
+aplicación podamos distinguir a primera vista el componente
+padre del componente hijo.
+*/
 .parent {
     border: 1px solid rgb(31, 30, 30);
     margin: 1rem;
     padding: 1rem;
 }
 
+h1 {
+    text-align: center;
+    color: rgb(144, 5, 5);
+}
+
 h2 {
     text-align: center;
-    color: darkgoldenrod;
+    color: rgb(151, 109, 4);
 }
 
 li {
     list-style: circle;
+    font-weight: normal;
+}
+
+li.selected {
+    list-style: circle;
+    font-weight: bold;
+
 }

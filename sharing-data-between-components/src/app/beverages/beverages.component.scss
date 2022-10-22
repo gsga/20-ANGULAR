@@ -1,4 +1,10 @@
+/*
+Esta clase se crea solo como una ayuda visual para que en la
+aplicación podamos distinguir a primera vista el componente
+padre del componente hijo.
+*/
 .child {
+    background-color: lightblue;
     border: 1px solid darkgray;
     margin: 1rem;
     padding: 1rem;

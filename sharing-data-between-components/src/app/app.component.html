@@ -1,52 +1,131 @@
+<!-- 
+  Este es el template del componente principal de la aplicación.
+  Está todo encerrado en una div de clase 'parent'.
+  La clase 'parent' está definida en la hoja de estilo
+  src\app\app.component.scss
+  y es solo para ayudar a distinguir visualmente este componente.
+ -->
 <div class="parent">
-  <h2>Parent component {{title}}</h2>
   <!-- 
-    Este es app-root, el componente padre. 
-    Contiene al componente hijo, que es app-beverages.
-    La propiedad currentBeverage que está entre corchetes [] a la
-    izquierda del = es una propiedad del componente app-beverages. 
-    Esto se puede comprobar en el archivo beverages.component.ts.
-    Entonces ya sabemos que se trata de property binding.
-    Lo que está a la derecha del = entre comillas es el nombre de una
-    propiedad, y ese nombre es currentBeverage, lo mismo que antes.
-    Pero ahora sabemos por el contexto que esta segunda propiedad no
-    es del componente app-beverages, sino de este componente en el que
-    estamos ahora, app-root.
-    Notar cómo ahora sí funciona la interpolación de la propiedad title,
-    que pertenece a este componente.
-    El componente hijo le envía información al componente padre por medio de
-    la interpolación de la propiedad previousBeverage.
-    El componente padre le envía información al componente hijo por medio de
-    property binding de la propiedad currentBeverage. 
+    Interpolación de variables. Las siguientes son todas 
+    propiedades de la clase de este componente, y están
+    declaradas y definidas en src\app\app.component.ts.
+  -->
+  <h1>{{heading1}}</h1>
+  <h2>{{heading2}}</h2>
+  <h4>{{clickearUna}}</h4>
+  <!-- 
+    Event binding
+    https://angular.io/guide/event-binding-concepts#handling-events
+    La expresión ' (click)="onClick($event)" ' es un event binding.
+    El nombre del evento entre paréntesis le indica a Angular que 
+    esto es un event binding.
+    Después viene el operador de asignación, que es parte obligatoria de
+    la sintaxis. Tiene que estar.
+    A la derecha del =, entre comillas dobles, hay una expresión, que 
+    Angular va a tratar de parsear como TypeScript. 
+    Lo primero que notamos es el nombre de la función, que es el handler
+    del evento. Ese nombre puede ser cualquiera, es arbitrario.
+    A este handler podemos pasarle o no un argumento, eso es optativo.
+    En este caso, le pasamos el argumento $event.
+    El argumento podría tener otro nombre, pero eso complicaría las
+    cosas innecesariamente.
+    Lo más simple es escribirlo exactamente como está: $event.
+    Ese es el objeto evento, que lleva toda la información relevante.
+    El target del evento determina la forma del objeto $event. 
+    Si el target del evento es un elemento DOM nativo, 
+    entonces $event es un objeto de evento DOM, con propiedades 
+    como 'target' y 'target.value'. En este ejemplo, el evento se origina
+    en un tag <li>, que es un elemento nativo del DOM.
+  -->
+  <ul (click)="onClick($event)">
+    <!--
+      La lista de bebidas que aparece a continuación se construye programáticamente, recorriendo
+      con la directiva *ngFor un array de strings, que está en la variable 'beverages'. Esta variable
+      pertenece a este mismo componente. Se define en app.component.ts y allí se le asigna un valor.
+
+      La directiva *ngFor va recorriendo el array 'beverages', y toma un ítem por
+      vez. Cada uno de esos ítems está disponible en la variable 'bev'.
+      Una vez que la variable 'bev' tiene asignado el valor, o sea el 
+      ítem que tomó del array 'beverages', está ahora disponible para ser
+      usada. En este ejemplo, es usada inmediatamente a la derecha, en la
+      interpolación que escribe cada elemento de la lista.
+    -->
+    <li class="selected" *ngFor="let bev of beverages">{{ bev }}</li>
+  </ul>
+  <!--
+    Interpolación de variable. 'elementClicked' es una variable de este
+    componente, definida en src\app\app.component.ts.
+    Recibe primero un valor por defecto, que es lo que se muestra
+    al arrancar la aplicación, antes de que el usuario seleccione de la lista.
+
+    Cuando el usuario selecciona un elemento de la lista, el handler del evento, además
+    de hacer otras cosas, le asigna a la variable 'elementClicked' el valor,
+    o sea la bebida seleccionada por el usuario, y eso es lo que entonces se verá
+    en la pantalla.
+  -->
+  <h4>{{elementClicked}}</h4>
+  <!-- 
+    Estamos en el componente padre, "app-root". 
+    Contiene al componente hijo, que es "app-beverages".
+
+    Property binding
+    Veamos la expresión ' [currentBeverage]="currentBeverage" '.
+
+    La propiedad 'currentBeverage' que está entre corchetes [] a la
+    izquierda del '=' es una propiedad del componente <app-beverages>. 
+    Esto se deduce de lugar en el que aparece, y de que no tiene calificativos.
+    Se puede comprobar en el archivo beverages.component.ts.
+
+    Lo que está a la derecha del '=' entre comillas es el nombre de la
+    propiedad 'currentBeverage'. Se llama igual que lo que está a la izquierda
+    del '=' entre los corchetes, pero no es lo mismo que antes.
+    Sabemos por el contexto que esta segunda propiedad no
+    es del componente <app-beverages>, sino de este componente en el que
+    estamos ahora, <app-root>. Cuando Angular encuentra la cadena entre
+    comillas dobles a la derecha del '=', asume que es una expresión y
+    trata de parsearla como TypeScript. Ahora bien, el TypeScript está
+    en el archivo .ts,... Es pura lógica, una vez que lo entendés.
+
+    Veamos ahora la expresión ' (newBeverageEvent)="addBeverage($event)" '.
+    Cuando Angular encuentra el identificacador entre paréntesis, asume que
+    es un event binding. Lo que está entre los paréntesis debe ser el nombre
+    del evento. No es un evento del DOM. 
+    Por el contexto en el que está usado, la primera suposición es que debería
+    ser un evento del componente <app-beverages>.
+    Entonces lo busca en el archivo src\app\beverages\beverages.component.ts.
+    Los detalles están en ese archivo.
+    La cadena entre comillas dobles que está a la derecha del '=' es parseada como
+    una expresión. En este caso, la primera opción es que sea un método del componente
+    en el que estamos ahora, <app-root>.
+    Para decirlo una vez más: para lo que está a la izquierda del '=', la primera opción
+    es el elemento en el estamos inmediatamente parados, sea un elemento del DOM o
+    un componente hijo que hemos incluido en nuestro componente padre. Para lo que está a la 
+    derecha del '=', la primera opción es el componente cuyo template estamos editando.
+    En definitiva, el evento 'newBeverageEvent' es del componente <app-beverages>, que es
+    el que lo dispara. Cuando el evento hijo dispara este evento, entonces esta expresión
+    que ahora estamos estudiando va a llamar al método 'addBeverage($event)'.
+    Este método agregará a la lista de bebidas lo que el usuario haya ingresado en el 
+    <input>.
+
   -->
   <app-beverages [currentBeverage]="currentBeverage" (newBeverageEvent)="addBeverage($event)"></app-beverages>
+
   <!-- 
-    La lista de bebidas que aparece a continuación se construye programáticamente, recorriendo
-    con la directiva *ngFor un array de strings, que está en la variable beverages. Esta variable
-    pertenece a este mismo componente. Se define en app.component.ts y allí se le asigna un valor.
-  -->
-  <ul>
-    <li *ngFor="let bev of beverages">{{ bev }}</li>
-  </ul>
-  <p>
     El usuario ingresa un texto en la caja de input.
-    <br>
     El usuario aprieta el botón Add. El botón está definido en
     beverages.component. Tiene asociada la función addNewBeverage() para el evento click.
     Esta función recibe como parámetro newBeverage.value. Es decir que estamos usando la variable de referencia
     para acceder al texto ingresado por el usuario. Esta función, a su vez, accede al objeto
     newBeverageEvent, propiedad del control beverages.
-    <br>
-    Este objeto es de tipo EventEmitter&lt;string&gt;. Tiene un método
+    Este objeto es de tipo EventEmitter<string>. Tiene un método
     emit(), que es invocado para emitir un evento. Ese evento está asociado a la variable newBeverageEvent.
-    <br>
     Esta variable, a su vez, tiene el decorador @Output.
-    <br>
     Si ahora nos vamos a app.component, vemos que dentro del tag
-    &lt;app-beverages&gt; la variable mencionada va entre paréntesis, así: (newBeverageEvent) y está asociada al
+    <app-beverages> la variable mencionada va entre paréntesis, así: (newBeverageEvent) y está asociada al
     llamado a la función addBeverage($event). Este $event es el evento que emitió la función emit() que antes fue
     invocada. Esto se puede comprobar usando el debugger y poniendo un breakpoint
     Finalmente, la función addBeverages agrega el texto ingresado a la lista de bebidas.
-  </p>
+   -->
 
 </div>
