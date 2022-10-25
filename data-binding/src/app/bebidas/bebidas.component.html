@@ -1,0 +1,60 @@
+<div class="child">
+  <h2>Este es el componente hijo</h2>
+  <!-- 
+    Este es el componente hijo, que está contenido en el componente padre.
+    Esto es interpolación.
+    'bebidaAnterior', que en este template está entre las dobles llaves,
+    es una propiedad de este componente, definida en el archivo 'bebidas.component.ts',
+    donde se le asigna el valor inicial "".
+    Pero esta variable recibe su valor de otro componente. Por eso
+    tiene el decorador @Input().
+  -->
+  <p><strong>Bebida anterior: {{ bebidaAnterior }}</strong></p>
+  <!-- 
+    Esto es interpolación.
+    'bebidaAgregada', que en este template está entre las dobles llaves,
+    es una propiedad de este componente, definida en el archivo 'bebidas.component.ts',
+    donde se le asigna el valor inicial "".
+    Recibe su valor por medio del property binding que está en el archivo app.component.html.
+    Allí se ve cómo la propiedad 'bebidaAgregada' del componente 'bebidas' que va entre [], está ligada a la propiedad
+    'bebidaAgregada' del componente principal, que va entre "". Esa es la sintaxis correcta.
+    La propiedad 'bebidaAgregada' del componente principal recibe su valor en el archivo app.component.ts.
+  -->
+  <p><strong>Bebida ingresada: {{ bebidaAgregada }}</strong></p>
+  <!-- 
+    Dentro del tag <label> el atributo "for" es el ID de elemento del DOM al cual
+    el label está ligado. En este caso, el label es para el input.
+    
+    En el tag <input>, "#bebidaNueva" es una variable de referencia de plantilla.
+    https://angular.io/guide/template-reference-variables
+    La variable de referencia se define anteponiendo un numeral al nombre: #nombre_de_variable.
+    En este caso, el tag <input> define la variable de referencia de plantilla "#bebidaNueva".
+    El significado preciso, el alcance, de la variable, es determinado por el lugar
+    en el que fue definida. Entre otras cosas, esto significa que tendrá unas u
+    otras propiedades, las que le correspondan.
+    bebidaNueva se refiere al tag de HTML <input> dentro del cual está definida.
+
+    Una vez definida, la variable se accede simplemente por su nombre, sin el #.
+    En este ejemplo, es usada en el tag <button>, en el código que se ocupa del evento click.
+
+    (click) es el nombre de un evento encerrado entre paréntesis. Esto es event binding.
+    El evento click estará ligado a la expresión de template que esté entre comillas a 
+    la derecha del =, es decir ' "agregarBebida(bebidaNueva.value)" '.
+    Lo que está entre paréntesis, como argumento, es la el valor de la variable de
+    template que definimos antes. Como vemos, ahora no usamos el #.
+    Y lo que está a la izquierda de los paréntesis con el argumento es el nombre
+    de un método. O sea que estamos llamando a una función y le pasamos un argumento.
+    Esa función que estamos llamando está definica en el 
+    archivo src\app\bebidas\bebidas.component.ts, como podemos comprobar.
+
+    Juntando todo, significa que si nosotros ingresamos un valor en el <input>, ese valor
+    será asignado a la variable de template #bebidaNueva, y esa misma variable, ya con su valor asignado,
+    es pasada como argumento al método agregarBebida(), que es el handler del evento click().
+    El método agregarBebida(), a su vez, emitirá otro nuevo evento por medio de su
+    variable eventoBebidaAgregada. Ese nuevo evento emitido llevará como contenido un
+    string, que es precisamente el argumento que le acabamos de pasar acá.
+  -->
+  <label for="beverage-input">Agregar una bebida&emsp;</label>
+  <input type="text" id="beverage-input" #bebidaNueva />
+  <button (click)="agregarBebida(bebidaNueva.value)">Agregar</button>
+</div>

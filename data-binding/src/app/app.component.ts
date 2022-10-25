@@ -15,23 +15,26 @@ export class AppComponent {
   clickearUna = 'Seleccionar una bebida de la lista';
 
   /**
-   * 
+   * Esta variable está pensada para interpolación.
+   * Recibe un valor inicial, cuando arranca la aplicación.
+   * Cuando el usuario selecciona una bebida de la lista,
+   * pasa a tener ese valor.
    */
-  elementClicked = 'No hay una bebida seleccionada';
+  bebidaSeleccionada = 'No hay una bebida seleccionada';
 
   // Esta propiedad está pensada para property binding.
-  currentBeverage = "cofee";
+  bebidaAnterior = "";
 
   /**
    * Array de bebidas para la lista.
    */
-  beverages = ['Café', 'Jugo', 'Leche', 'Mate', 'Té'];
+  bebidas = ['Café', 'Jugo', 'Leche', 'Mate', 'Té'];
 
   /**
-   * Handler
+   * Handler de eventoBebidaAgregada.
    */
-  addBeverage(newBeverage: string) {
-    this.beverages.push(newBeverage);
+  agregarBebida(bebida: string) {
+    this.bebidas.push(bebida);
     this.clearInput();
   }
 
@@ -45,7 +48,6 @@ export class AppComponent {
    * componente.
    */
   onClick(e: any) {
-    this.elementClicked = 'Bebida seleccionada: ' + e.target.innerHTML;
+    this.bebidaSeleccionada = 'Bebida seleccionada: ' + e.target.innerHTML;
   }
-
 }

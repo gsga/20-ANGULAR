@@ -1,36 +1,33 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-beverages',
-  templateUrl: './beverages.component.html',
-  styleUrls: ['./beverages.component.scss']
+  selector: 'app-bebidas',
+  templateUrl: './bebidas.component.html',
+  styleUrls: ['./bebidas.component.scss']
 })
-export class BeveragesComponent implements OnInit {
+export class BebidasComponent implements OnInit {
   /**
-   * Para empezar, previousBeverage es simplemente una propiedad de este 
-   * componente, que es inicializada con el valor "tea". Con esto es
-   * suficiente para usarla en template de este mismo componente.
-   * El decorador @Input lo vamos a usar para enviar datos del padre al hijo.
-   * @Input() previousBeverage = "tea";
-   * 
+   * 'bebidaAnterior' es una propiedad de este componente.
+   * Es inicializada con el valor "". 
+   * Se usa en interpolación en el template de este mismo componente.
+   * Pero su valor lo recibe desde otro componente, y por eso es
+   * necesario el decorador @Input().
    */
+  @Input() bebidaAnterior = "";
 
-  previousBeverage = "tea";
   /**
-   * currentBeverage es otra propiedad de este componente. Inicialmente le
-   * asignamos una strin vacía. 
-   * Pero a esta propiedad le agregamos el decorador @Input().
-   * Acá usamos el decorador @Input() para transmitir datos del padre al hijo,
-   * por medio de property binding. Notar que en este componente, la propiedad
-   * currentBeverage tiene asignada una cadena vacía.
+   * 'bebidaAgregada' es una propiedad de este componente.
+   * Es inicializada con el valor "". 
+   * Recibe su valor de otra variable de este mismo componente.
+   * Por eso no necesita el decorador @Input().
    */
-  @Input() currentBeverage = "";
+  bebidaAgregada = "";
 
   /**
    * https://angular.io/guide/inputs-outputs#sending-data-to-a-parent-component
    * El decorador @Output() permite que los datos fluyan del componente hijo
    * al componente padre.
-   * La variable newBeverageEvent está pensada para communicar datos
+   * La variable eventoBebidaIngresada está pensada para communicar datos
    * al componente padre. Lo hace emitiendo un evento.
    * Por eso es de tipo EventEmitter.
    * Cuando la variable tenga información que transmitir, emitirá un
@@ -38,8 +35,13 @@ export class BeveragesComponent implements OnInit {
    * Recibirá el aviso de que este evento ha ocurrido aquel objeto que
    * se haya suscripto a este evento. Bueno, ese objeto es el componente
    * padre, <app-root>
+   * 
+   * https://angular.io/api/core/EventEmitter
+   * Úselo en componentes con la directiva @Output para emitir eventos personalizados 
+   * de forma síncrona o asíncrona, y registre handlers para esos eventos 
+   * suscribiéndose a una instancia.
    */
-  @Output() newBeverageEvent = new EventEmitter<string>();
+  @Output() eventoBebidaAgregada = new EventEmitter<string>();
 
   constructor() { }
 
@@ -48,12 +50,12 @@ export class BeveragesComponent implements OnInit {
 
   /**
    * Esta función es llamada por evento click() del botón que está en el template de
-   * este componente. Cuando clickeamos el botón Add, se lee el valor que hayamos
+   * este componente. Cuando clickeamos el botón 'Agregar', se lee el valor que hayamos
    * ingresado en el <input>, que es un string, y se le pasa como argumento en el 
    * llamado a esta función, y así nos llega la bebida que ingresó el usuario.
    * 
    * En el cuerpo de este método, invocamos el método emit() de la variable
-   * newBeverageEvent, que es tipo EventEmitter<string>. A este método
+   * 'eventoBebidaIngresada', que es tipo EventEmitter<string>. A este método
    * le pasamos como argumento el string recibido. De modo que este nuevo
    * evento que estamos emitiendo, lleva como contenido la nueva bebida que
    * el usuario ingresó.
@@ -66,13 +68,16 @@ export class BeveragesComponent implements OnInit {
    * Si me suscribo a un evento, la cola me avisa cuando llega. 
    * Si no me suscribo, simplemente no me voy a enterar, por muchos que lleguen.
    * 
-   * Esta función, además, actualiza la variable previousBeverage con
+   * Esta función, además, actualiza la variable bebidaAnterior con
    * el valor recibido, de modo que además de agregarse a la lista
    * aparece también en este componente hijo.
    * 
    */
-  addNewBeverage(value: string) {
-    this.previousBeverage = value;
-    this.newBeverageEvent.emit(value);
+  agregarBebida(value: string) {
+    // Recibe su valor de otro componente.
+    this.bebidaAnterior = this.bebidaAgregada;
+    // Recibe su valor de este mismo componente.
+    this.bebidaAgregada = value;
+    this.eventoBebidaAgregada.emit(value);
   }
 }
