@@ -13,12 +13,27 @@ import { Component, OnInit } from '@angular/core';
  */
 import { Title } from '@angular/platform-browser';
 
+/**
+ * Estas líneas son como la definición de una clase,
+ * en el sentido de la programación orientada a 
+ * objetos.
+ * La propiedad selector es el identificador de este
+ * componente. Cuando queramos incluir en otro componente
+ * una instancia de este componente, usaremos este selector.
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 
+/**
+ * Dijimos antes que cada componente es como una clase.
+ * Para poder usar esta clase en otro lugar de la aplicación
+ * necesitamos que sea visible fuera de esta precisa carpeta
+ * donde está guardada, y donde están estos archivos.
+ * Para eso la exportamos.
+ */
 export class AppComponent implements OnInit {
   title = 'Home';
 
