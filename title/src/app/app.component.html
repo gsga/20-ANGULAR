@@ -1,5 +1,12 @@
 <!--
   src\app\app.component.html
+
+  Vamos a ver el uso de routing.
+  En resumen, uno pone un parámetro en la URL, 
+  el routerLink captura ese parámetro, invoca al
+  componente que le toca, y ese componente resulta
+  renderizado en el router-outlet.
+  A continuación vemos en detalle cada uno de estos pasos.
 -->
 
 <h1>Angular Title Service Example</h1>
@@ -17,7 +24,7 @@
     link parameters array. Lo que estamos haciendo en este ejemplo se llama
     ligar un link parameters array a una directiva RouterLink.
     https://angular.io/guide/router#link-parameters-array
-    Estamos en el componente principal de la aplicación, no propiamente
+    Estamos en el componente raíz de la aplicación, no propiamente
     en index.html, sino en algo que se va a inyectar en index.html.
     De hecho, este archivo está dentro de la carpeta app, que a su vez está
     en el directorio raíz de la aplicación, que es donde está index.html.
@@ -46,7 +53,7 @@
   palabra arbitraria. Solo sirve como selector en la hoja de estilo.
   Nos vamos a dar cuenta porque al seguir uno de los links de más
   arriba nos va a aparecer el componente invocado, que aterrizará en
-  el router-outlet. Pero el router-outler está dentro de una div que tiene
+  el router-outlet. Pero el router-outlet está dentro de una div que tiene
   un color de background amarillo patito y letras de un rojo Ferrari.
 -->
 <div main>

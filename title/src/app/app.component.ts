@@ -1,3 +1,7 @@
+/**
+ * Este archivo pertenece al componente root.
+ * Nos damos cuenta porque el selector es app-root.
+ */
 import { Component, OnInit } from '@angular/core';
 
 /**
@@ -41,7 +45,11 @@ export class AppComponent implements OnInit {
    * Este constructor es el modo de inyectar una dependencia en esta clase.
    * https://angular.io/guide/dependency-injection#injecting-services
    * Este mecanismo es el modo en que Angular implementa el
-   *  patrón de inyección de dependencias (DI pattern).
+   * patrón de inyección de dependencias (DI pattern).
+   * O sea, este componente, que responde al selector app-root,
+   * tendrá acceso a las funcionalidades del servicio Title,
+   * y podrá usarlo, aunque todo eso esté implementado en otra
+   * parte, no en este componente.
    */
   constructor(private titleService: Title) {
   }
@@ -52,8 +60,14 @@ export class AppComponent implements OnInit {
     un objeto llamado titleService, que es exactamente lo que su nombre indica.
     Este servicio expone solo dos métodos. Uno de ellos es el que se
     usa acá para setear el título del documento html actual.
+    Como el constructor ya se ejecutó y terminó, el componente está creado. Pero
+    todavía no ha sido renderizado para que el cliente lo vea.
   */
   ngOnInit() {
+    /**
+     * Usamos el método setTitle para asignar un valor al tag <title> que está
+     * dentro de la sección <head> de index.html.
+     */
     this.titleService.setTitle(this.title);
   }
 
