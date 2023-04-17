@@ -1,13 +1,16 @@
 <!--
-    Este archivo src\app\app.component.html es el template del
-    componente principal de la aplicación.
-    Contiene solo dos tags. El primero inyecta el
-    componente cuyo selector es app-header, y el segundo
-    inyecta el router-outlet.
--->
+    Template del componente raíz de la aplicación.
+    
+    Inyecta el componente cuyo selector es app-header.
+    El componente app-header está definido con
+    los archivos de constumbre, dentro de su correspondiente carpeta.
+  -->
 <app-header></app-header>
+
+<!--
+    Interpolation binding. El identificador que está entre las
+    llaves dobles es una variable definida en el .ts de este mismo
+    componente. El valor de la variable titulo será interpolado en este lugar.
+    Las dobles llaves son parte de la notación, y no aparecen en la salida.
+  -->
 <h1>{{titulo}}</h1>
-<div class="grid">
-    <app-card *ngFor="let tarjeta of tarjetas"></app-card>
-</div>
-<router-outlet></router-outlet>

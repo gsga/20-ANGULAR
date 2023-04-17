@@ -16,6 +16,7 @@ import { BrowserModule, Title } from '@angular/platform-browser';
  * Esa clase es la que importamos acá.
  */
 import { AppRoutingModule } from './app-routing.module';
+
 /**
  * Importamos cada uno de los otros componentes que vamos a
  * usar en este componente.
@@ -24,7 +25,6 @@ import { AppComponent } from './app.component';
 import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
 import { ThreeComponent } from './three/three.component';
-
 
 /**
  * Las declaraciones son para hacer que las directivas 

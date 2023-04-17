@@ -1,3 +1,11 @@
+<!-- 
+  Template del componente header. Recordar que este componente
+  es inyectado en el componente raíz, al principio.
+  Como es componente raíz ocupa toda la ventana de browser,
+  este header aparecerá en el tope de la página.
+  Las clases header y menu están definidas en la hoja de estilo
+  de este componente.
+-->
 <div class="header">
   <ul class="menu">
     <li>
@@ -10,8 +18,12 @@
         =, y a la derecha del = hay una string. Sé que es una string
         porque está entre comillas "". Y es interpretada en su sentido
         más elemental, simplemente como una string común y corriente.
+        Recordar el tag <base> que discutimos en index.html.
+        Bueno, esta URL es relativa, porque arranca directamente
+        con un nombre de carpeta, sin protocolo ni barras. Esta
+        URL relativa es relativa a <base>.
       -->
-      <img class="logo" src="..\assets\img\logo\212 x 256.jpg" alt="" />
+      <img class="logo" src="assets\img\212 x 256.jpg" alt="" />
     </li>
     <li>Link 1</li>
     <li>Link 2</li>

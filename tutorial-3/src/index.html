@@ -1,13 +1,30 @@
 <!doctype html>
-<html lang="en">
+<!-- Elegimos el idioma español. -->
+<html lang="es">
+
 <head>
   <meta charset="utf-8">
-  <title>Tutorial3</title>
+  <title>Tutorial 3</title>
+  <!-- 
+    Esto significa que todas las URLs relativas que haya en
+    este documento, se tomarán como relativas a esta base.
+    Si estamos en la PC local, será
+    http://localhost:4200/
+    Notar que lo que sigue por defecto a la URL anterior, sería
+    index.html. Pero ese documento está en la carpeta src.
+    O sea que la carpeta src está mapeada a la raíz del sitio web.
+    Por eso, la URL relativa que tiene el favicon.ico es solo
+    el archivo, sin nada más. 
+    Significa: "estoy en la misma carpeta que index.html".
+    Por lo tanto, se accede al favicon con la URL base, sin más.
+  -->
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>
