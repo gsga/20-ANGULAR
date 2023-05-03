@@ -1,17 +1,21 @@
 <div>
-    <h3 class="title">Lista de Favoritos</h3>
+  <h3 class="title">Lista de Favoritos</h3>
 </div>
 <div class="divider">
-    <div class="grid">
-        <ul class="favorite-list">
-            <li *ngFor="let video of listaVideos">
-                <img class="mini-image" [src]="video.data.image" alt="">
-                <div class="title-item">
-                    {{video.data.titulo}}
-                    <br>
-                    {{video.data.subtitulo}}
-                </div>
-            </li>
-        </ul>
-    </div>
+  <div class="grid">
+    <ul class="favorite-list">
+      <!--
+        La variable listaVideos es una propiedad de esta clase.
+        Está definida en el módulo de este componente.
+      -->
+      <li *ngFor="let video of listaVideos">
+        <img class="mini-image" [src]="video.data.image" alt="">
+        <div class="title-item">
+          {{video.data.titulo}}
+          <br>
+          {{video.data.subtitulo}}
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

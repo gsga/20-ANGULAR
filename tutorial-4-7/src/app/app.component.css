@@ -1,8 +1,8 @@
 /* Esta es la clase que se aplica a la div que está en el template. */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: .1rem;
-    padding-left: 0rem;
-    padding-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .1rem;
+  padding-left: 0rem;
+  padding-bottom: 1rem;
 }

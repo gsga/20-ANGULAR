@@ -11,6 +11,13 @@ export class CardComponent implements OnInit {
   /** El signo de pregunta significa que la variable image podría eventualmente
    * no estar presente. En este caso no tendríamos un error.
    * Si está presente, debe ser de tipo string.
+   * 
+   * Notar que las propiedades del componente Card son iguales a las de la
+   * propiedad tarjetas del componente raíz, que son a su vez las propiedades
+   * de la interfaz Tarjeta. Son tres cosas distintas, las tres son necesarias,
+   * cada una de ellas cumple una función diferente.
+   * Para decirlo explícitamente, aunque tienen las mismas propiedades,
+   * el componente Card no es la variable tarjetas.
    */
   public image?: string;
   public titulo: string = "";
@@ -38,15 +45,21 @@ export class CardComponent implements OnInit {
    * Pero no los tiene de entrada, sino que espera recibirlos (@Input).
    * Esos datos, el componente los recibe cuando el componente principal
    * de la aplicación usa la directiva *ngFor para recorrer el array de
-   * datos. Angular toma cada uno de esos componentes del array, y lo
+   * datos. Angular toma cada uno de esos ítems del array, y lo
    * pone a disposición del componente Card, inyectándolo en la variable
    * dataEntrante.
+   * 
+   * A la vista de toda la discusión anterior, se entiende por qué la documentación
+   * oficial de Angular dice que el decorador @Input() permite que el componente hijo
+   * reciba información desde el componente padre.
    */
   @Input() dataEntrante: any;
 
   /**
+   * Uno de los modos en que se implementa el patrón de inyección
+   * de dependencias es este: por medio de un constructor.
    * El parámetro servicioFavorito que se pasa al constructor
-   * es el modo en que se implementa el patrón de inyección de dependencias.
+   * de la clase CardComponent es lo que se inyecta.
    * Concretamente, estamos inyectando en la clase CardComponent la dependencia de la
    * clase ServicioFavoritosService. Esa dependencia está disponible para ser inyectada
    * en toda la aplicación.
@@ -76,8 +89,8 @@ export class CardComponent implements OnInit {
    * del objeto this.servicioFavorito.
    * Esa propiedad es de tipo EventEmitter<any>.
    * https://angular.io/api/core/EventEmitter
-   * Es usa en componentes con la directiva @Output para emitir eventos personalizados 
-   * de forma síncrona o asíncrona, y registre controladores para esos eventos 
+   * Se usa en componentes con la directiva @Output para emitir eventos personalizados 
+   * de forma síncrona o asíncrona, y registra controladores para esos eventos 
    * que estén suscritos a una instancia.
    * En otras palabras, es un emisor de eventos, y para eso se usa el método emit().
    * 

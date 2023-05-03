@@ -1,12 +1,6 @@
 <!-- 
   Componente raíz de la aplicación. 
-  En este lugar, lo primero que tenemos es una instancia
-  del componente app-header. Ese componente está definido en
-  otra parte, dentro de su propia carpeta. Pero es renderizado
-  en este lugar, donde está la instancia.
--->
-<app-header></app-header>
-<!--
+
   Tenemos un tag <h1>. Dentro de ese tag hay una interpolación.
   Se reconoce por las llaves dobles {{}}. 
   El valor de la variable titulo se interpola entre las llaves dobles. 
@@ -16,19 +10,24 @@
   nos dice que se trata de una variable. Dado que no hay ninguna indicación
   de su procedencia, por defecto suponemos que debe ser de este mismo
   componente. En ese caso, debería estar definida en el archivo 
-  src\app\app.component.ts, y así es, efectivamente.
+  src\app\app.component.ts. No confundir con la propiedad titulo de la
+  interfaz Tarjeta, que también se define en ese mismo módulo. La que nos
+  interesa acá es la propiedad titulo de la clase de este componente.
+
+  Notar que el único estilo que tiene aplicado es el que corresponde
+  a un tag <h1>.
 -->
 <h1>{{titulo}}</h1>
 <!-- 
-  Esta div es de clase grid. La clase grid está definida en la CSS 
+  Esta div es de clase grid. La clase grid está definida en la CSS del componente.
 -->
 <div class="grid">
   <!--
-    Vamos a explicar el uso de la directiva *ngFor.
+    Uso de la directiva *ngFor.
 
     <app-card> es el selector del componente card, definido en card.component.ts.
     Si solamente pusiéramos el tag del componente, lo único que pasaría
-    es que ese componente se instanciaría en este preciso lugar.
+    es que ese componente se instanciaría una vez en este preciso lugar.
     Eso sería todo.
 
     Pero el tag no está solo, sino que tiene dentro una compleja
@@ -36,12 +35,11 @@
     funcione más o menos como un loop for. Lo que sucede es que
     está recorriendo una colección, y renderiza el componente card no
     solamente una vez, sino una vez por cada ítem que encuentra en
-    la colección que está recorriendo.
+    la colección que está recorriendo. O sea que renderiza un array de cards.
 
     [dataEntrante]="tarjeta" es un caso de property binding. 
     Lo que está entre los corchetes [] debe ser una propiedad, es decir,
-    el nombre de una propiedad.
-    Sabemos que dataEntrante debe ser una propiedad o atributo del componente card.
+    el nombre de una propiedad o atributo del componente card.
     Por lo tanto, sabemos que dataEntrante debe estar definida en 
     card.component.ts. Y efectivamente, lo podemos ver en ese archivo.
 
@@ -53,13 +51,18 @@
     cadena literalmente, sino que tiene que pensar que es una variable, 
     cuyo valor se va a reemplazar en ese lugar, es decir entre las comillas.
     En este caso, es la variable tarjeta. Una variable cuyo nombre es tarjeta.
-
+    En resumen, lo que hace Angular es tomar el objeto tarjeta y asignarlo
+    a la propiedad dataEntrante del objeto card. Si solo estuviera esto, sin la 
+    directiva *ngFor, se ejecutaría una única vez. Lógicamente, tendríamos que
+    asignarle de alguna manera valores a las propiedades del objeto tarjeta,
+    para que a su vez sean pasadas al objeto dataEntrante. 
+    Pero la directiva *ngFor está.
     *ngFor="let tarjeta of tarjetas"
     La directiva estructural *ngFor recorre una colección, según lo que viene
     determinado en el string que está a la derecha del =.
     'let tarjeta' declara La variable tarjeta.
     'of tarjetas' especifica que tarjeta es un componente del array tarjetas.
-    Entonces, cada tarjeta es un elemento del array tarjetas.
+    Entonces, cada ítem tarjeta es un elemento del array tarjetas.
     La directiva *ngFor toma cada elemento tarjeta, se lo pasa al argumento "tarjeta" del
     property binding, y eso hace que la propiedad dataEntrante del componente card
     reciba el valor que viene en ese ítem. De ese modo queda armada una card
@@ -76,5 +79,8 @@
   inicializado y completado.
   Este es el componente en el que se irán agregando tarjetas,
   a medida que se vaya pulsando el botón Añadir a Favoritos.
+  Más arriba tenemos el array de componentes card. El template del
+  componente card tiene un botón Añadir a Favoritos. Cuando se
+  pulsa ese botón, la tarjeta correspondiente se agrega acá.
 -->
 <app-favoritos></app-favoritos>
