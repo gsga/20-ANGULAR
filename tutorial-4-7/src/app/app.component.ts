@@ -89,17 +89,20 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     /**
-     * Esta es la colección que luego recorreremos con la directiva
-     * *ngFor, para ir creando compoentes cards, a los cuales les
+     * Esta es tarjetas, la colección que luego recorreremos con la directiva
+     * *ngFor, para ir creando componentes card, a los cuales les
      * vamos a asignar los datos que iremos tomando de los ítems
      * de esta colección. Por eso aquí y ahora le estamos cargando
-     * a la colección los valores correspondientes, para que luego
+     * a la colección tarjetas los ítems correspondientes, para que luego
      * los encontremos cuando recorramos la colección.
      * 
      * Notar que los ítems de esta colección tienen las mismas propiedades
-     * que la interfaz Tarjeta, pero son dos objetos independientes y
-     * diferentes, cumplen funciones distintas en la aplicación.
-     * En particular, esta colección lo único que hace es tener
+     * que la interfaz Tarjeta. Eso es porque la colección tarjetas
+     * se declaró como un array de tipo Tarjeta.
+     * La interfaz Tarjeta y la colección tarjetas no son el mismo objeto.
+     * Son dos objetos independientes y diferentes, cumplen funciones 
+     * distintas en la aplicación.
+     * En particular, la colección tarjetas lo único que hace es tener
      * almacenados los datos que vamos a necesitar luego, a la hora
      * de crear los componentes Card.
      */

@@ -1,6 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServicioFavoritosService } from '../servicio-favoritos.service';
 
+/**
+ * https://angular.io/api/core/Component
+ * El decorador @Component marca una clase como un componente Angular 
+ * y proporciona metadatos de configuración que determinan cómo se 
+ * debe procesar, crear instancias y usar el componente en 
+ * tiempo de ejecución.
+ */
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -78,8 +85,9 @@ export class CardComponent implements OnInit {
    * de esta clase, es decir a este objeto en el que estoy ahora.
    * 
    * this.servicioFavorito es la instancia de la clase ServicioFavoritosService
-   * de este objeto. Notar que la clase CardComponent no lo declara. Si nos fijamos
-   * bien, lo único que hay es que el constructor de la clase CardComponent
+   * que está en la propiedad servicioFavorito de este objeto. 
+   * Notar que la clase CardComponent no declara la propiedad servicioFavorito. 
+   * Lo único que hay es que el constructor de la clase CardComponent
    * recibe como argumento "private servicioFavorito: ServicioFavoritosService".
    * Y esto es una inyección de dependencia. El objeto servicioFavorito
    * aparece como una propiedad de esta instancia de la clase CardComponent,

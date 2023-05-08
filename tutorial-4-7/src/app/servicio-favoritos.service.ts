@@ -8,11 +8,11 @@
  * Esto es parte de la implementación del patrón event binding
  * y se usa para la inyección de dependencias.
  * 
- * -  Inyectable es un decorador que marca una clase como inyectable 
+ * -  @Inyectable es un decorador que marca una clase como inyectable 
  * y permite inyectarla como dependencia en otros componentes, servicios o módulos.
  * No declara ni propiedades ni métodos. No es una interfaz.
  * 
- * -  Output es un decorador que permite que un componente o directiva emita eventos, 
+ * -  @Output es un decorador que permite que un componente o directiva emita eventos, 
  * que pueden ser escuchados y manejados por otros componentes. 
  * 
  * -  EventEmitter es una clase que se puede usar para crear una instancia 
