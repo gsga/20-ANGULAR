@@ -39,7 +39,7 @@ import { Title } from '@angular/platform-browser';
  * Para eso la exportamos.
  */
 export class AppComponent implements OnInit {
-  title = 'Home';
+  title = 'Pirulo';
 
   /**
    * Este constructor es el modo de inyectar una dependencia en esta clase.

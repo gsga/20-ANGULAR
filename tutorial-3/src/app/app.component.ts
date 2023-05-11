@@ -32,5 +32,5 @@ export class AppComponent {
    * a usar en el template de este componente, mediante el
    * mecanismo llamado interpolation binding.
    */
-  titulo = 'Tutorial 3';
+  titulo = 'Tutorial 5';
 }
